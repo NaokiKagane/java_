@@ -16,3 +16,4 @@ sandbox/build/tmp/jar/MANIFEST.MF
 sandbox/build/tmp/compileJava/source-classes-mapping.txt
 sandbox/build/libs/sandbox.jar
 sandbox/build/classes/java/main/MyFirstProgram.class
+.idea/workspace.xml
