@@ -14,17 +14,13 @@ public class MyFirstProgram {
     System.out.println("Площадь прямоугольника со сторойной " + r.a + " и " + r.b + " = " + r.area());
 
     PointInfo P = new PointInfo(2,4,3,5);
-    System.out.println("Расстояние между точкой Х с координатами " + P.x1 + ", " + P.y1 + " и точкой Y с координатами " + P.x2 + "," + P.y2+ " = " + distance(P));
+    System.out.println("Расстояние между точкой Х с координатами " + P.x1 + ", " + P.y1 + " и точкой Y с координатами " + P.x2 + "," + P.y2+ " = " + P.distance());
   }
 public static void hello(String somebody) {
 
     System.out.println("Hello, " + somebody + "!");
   }
 public class Point {
-
-  }
-  public static double distance(PointInfo P){
-    return Math.sqrt((P.x2 - P.x1) * (P.x2 - P.x1) + (P.y2 - P.y1) * (P.y2 - P.y1));
 
 }
 }
