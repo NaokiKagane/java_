@@ -13,14 +13,17 @@ public class MyFirstProgram {
     Rectangle r = new Rectangle(4,6);
     System.out.println("Площадь прямоугольника со сторойной " + r.a + " и " + r.b + " = " + r.area());
 
-    PointInfo P = new PointInfo(2,4,3,5);
-    System.out.println("Расстояние между точкой Х с координатами " + P.x1 + ", " + P.y1 + " и точкой Y с координатами " + P.x2 + "," + P.y2+ " = " + P.distance());
+    Point p1 = new Point(2,3);
+    Point p2 = new Point(2,7);
+    System.out.println("Расстояние между точками = " + p1.distance(p2));
+
+
+    //PointInfo P = new PointInfo(2,4,3,5);
+    //System.out.println("Расстояние между точкой Х с координатами " + P.x1 + ", " + P.y1 + " и точкой Y с координатами " + P.x2 + "," + P.y2+ " = " + P.distance());
   }
 public static void hello(String somebody) {
 
     System.out.println("Hello, " + somebody + "!");
   }
-public class Point {
 
-}
 }

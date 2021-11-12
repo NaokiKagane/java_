@@ -17,3 +17,7 @@ sandbox/build/tmp/compileJava/source-classes-mapping.txt
 sandbox/build/libs/sandbox.jar
 sandbox/build/classes/java/main/MyFirstProgram.class
 .idea/workspace.xml
+sandbox/out/production/classes/ru/stqa/pft/sandbox/Rectangle.class
+sandbox/out/production/classes/ru/stqa/pft/sandbox/Square.class
+sandbox/src/main/java/ru/stqa/pft/.idea/.name
+sandbox/src/main/java/ru/stqa/pft/sandbox/.idea/.name
