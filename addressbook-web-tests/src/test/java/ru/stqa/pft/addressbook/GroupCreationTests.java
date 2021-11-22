@@ -37,6 +37,45 @@ public class GroupCreationTests {
     fillGroupPage(new GroupData("test1", "test2", "test3"));
     submitGroupCreation();
     returnToGroupPage();
+
+    gotoAddNew();
+    fillAddNew(new AddNewData("Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "Mail@mail.ru", "Anna"));
+    submitAddNew();
+    returnToHomePage();
+  }
+
+  private void returnToHomePage() {
+    wd.findElement(By.linkText("home page")).click();
+  }
+
+  private void submitAddNew() {
+    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+  }
+
+  private void fillAddNew(AddNewData addNewData) {
+    wd.findElement(By.name("theform")).click();
+    wd.findElement(By.name("firstname")).clear();
+    wd.findElement(By.name("firstname")).sendKeys(addNewData.getFirstName());
+    wd.findElement(By.name("middlename")).click();
+    wd.findElement(By.name("lastname")).click();
+    wd.findElement(By.name("lastname")).clear();
+    wd.findElement(By.name("lastname")).sendKeys(addNewData.getLastName());
+    wd.findElement(By.name("nickname")).click();
+    wd.findElement(By.name("nickname")).clear();
+    wd.findElement(By.name("nickname")).sendKeys(addNewData.getNickName());
+    wd.findElement(By.name("home")).click();
+    wd.findElement(By.name("home")).clear();
+    wd.findElement(By.name("home")).sendKeys(addNewData.getHomePhone());
+    wd.findElement(By.name("mobile")).click();
+    wd.findElement(By.name("mobile")).clear();
+    wd.findElement(By.name("mobile")).sendKeys(addNewData.getMobilePhone());
+    wd.findElement(By.name("email")).click();
+    wd.findElement(By.name("email")).clear();
+    wd.findElement(By.name("email")).sendKeys(addNewData.getEmailAdress());
+  }
+
+  private void gotoAddNew() {
+    wd.findElement(By.linkText("add new")).click();
   }
 
   private void returnToGroupPage() {
