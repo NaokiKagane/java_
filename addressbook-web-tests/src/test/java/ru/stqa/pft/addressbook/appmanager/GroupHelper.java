@@ -5,55 +5,40 @@ import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.AddNewData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-public class GroupHelper {
-  public WebDriver wd;
+public class GroupHelper extends HelperBase {
 
   public GroupHelper(WebDriver wd) {
-    this.wd = wd;
+    super(wd);
   }
 
   public void returnToHomePage() {
-    wd.findElement(By.linkText("home page")).click();
+    click(By.linkText("home page"));
   }
 
   public void submitAddNew() {
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
   public void fillAddNew(AddNewData addNewData) {
-    wd.findElement(By.name("theform")).click();
-    wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(addNewData.getFirstName());
-    wd.findElement(By.name("middlename")).click();
-    wd.findElement(By.name("lastname")).click();
-    wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(addNewData.getLastName());
-    wd.findElement(By.name("nickname")).click();
-    wd.findElement(By.name("nickname")).clear();
-    wd.findElement(By.name("nickname")).sendKeys(addNewData.getNickName());
-    wd.findElement(By.name("home")).click();
-    wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(addNewData.getHomePhone());
-    wd.findElement(By.name("mobile")).click();
-    wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(addNewData.getMobilePhone());
-    wd.findElement(By.name("email")).click();
-    wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(addNewData.getEmailAdress());
+    type(By.name("theform"), addNewData.getFirstName());
+    click(By.name("middlename"));
+    type(By.name("lastname"), addNewData.getLastName());
+    type(By.name("nickname"), addNewData.getNickName());
+    type(By.name("home"), addNewData.getHomePhone());
+    type(By.name("mobile"), addNewData.getMobilePhone());
+    type(By.name("email"), addNewData.getEmailAdress());
   }
 
   public void returnToGroupPage() {
-    wd.findElement(By.linkText("group page")).click();
+    click(By.linkText("group page"));
   }
 
   public void submitGroupCreation() {
-    wd.findElement(By.name("submit")).click();
+    click(By.name("submit"));
   }
 
   public void fillGroupPage(GroupData groupData) {
-    wd.findElement(By.name("group_name")).click();
-    wd.findElement(By.name("group_name")).clear();
-    wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
+    type(By.name("group_name"), groupData.getName());
     wd.findElement(By.name("group_header")).clear();
     wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
     wd.findElement(By.name("group_footer")).clear();
@@ -61,10 +46,10 @@ public class GroupHelper {
   }
 
   public void deleteSelectedGroup() {
-    wd.findElement(By.name("delete")).click();
+    click(By.name("delete"));
   }
 
   public void selectGroup() {
-    wd.findElement(By.name("selected[]")).click();
+    click(By.name("selected[]"));
   }
 }
