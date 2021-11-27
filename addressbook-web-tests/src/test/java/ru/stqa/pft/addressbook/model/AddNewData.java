@@ -1,20 +1,21 @@
 package ru.stqa.pft.addressbook.model;
 
 public class AddNewData {
-  private final String lastName;
-  private final String nickName;
-  private final String homePhone;
-  private final String mobilePhone;
-  private final String emailAdress;
-  private final String firstName;
+  private String firstName;
+  private String lastName;
+  private String nickName;
+  private String homePhone;
+  private String mobilePhone;
+  private String emailAdress;
 
-  public AddNewData(String lastName, String nickName, String homePhone, String mobilePhone, String emailAdress, String firstName) {
+  public AddNewData(String firstName, String lastName, String nickName, String homePhone, String mobilePhone, String emailAdress) {
+    this.firstName = firstName;
     this.lastName = lastName;
     this.nickName = nickName;
     this.homePhone = homePhone;
     this.mobilePhone = mobilePhone;
     this.emailAdress = emailAdress;
-    this.firstName = firstName;
+
   }
 
   public String getLastName() {
