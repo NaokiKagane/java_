@@ -21,3 +21,4 @@ sandbox/out/production/classes/ru/stqa/pft/sandbox/Rectangle.class
 sandbox/out/production/classes/ru/stqa/pft/sandbox/Square.class
 sandbox/src/main/java/ru/stqa/pft/.idea/.name
 sandbox/src/main/java/ru/stqa/pft/sandbox/.idea/.name
+addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java

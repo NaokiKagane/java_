@@ -27,15 +27,6 @@ public class GroupHelper extends HelperBase {
     wd.findElement(By.name("group_footer")).clear();
     wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
   }
-  public void fillAddNew(AddNewData addNewData) {
-    //type(By.name("theform"), addNewData.getFirstName());
-    type(By.name("firstname"), addNewData.getFirstName());
-    click(By.name("middlename"));
-    type(By.name("lastname"), addNewData.getLastName());
-    type(By.name("nickname"), addNewData.getNickName());
-    type(By.name("home"), addNewData.getHomePhone());
-    type(By.name("mobile"), addNewData.getMobilePhone());
-    type(By.name("email"), addNewData.getEmailAdress());}
 
   public void deleteSelectedGroup() {
     click(By.name("delete"));
