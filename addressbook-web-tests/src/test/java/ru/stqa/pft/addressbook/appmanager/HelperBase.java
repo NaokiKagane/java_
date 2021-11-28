@@ -21,12 +21,13 @@ public class HelperBase {
     wd.findElement(locator).click();
   }
 
-  private boolean isAlertPresent() {
+  public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
       return true;
     } catch (NoAlertPresentException e) {
       return false;
     }
+
   }
 }
