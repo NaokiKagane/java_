@@ -12,15 +12,8 @@ public class GroupCreationTests extends TestBase{
   public void testGroupCreation() throws Exception {
 
     app.getNavigationHelper().gotoGroupPage();
-    initGroupCreation();
-    app.getGroupHelper().fillGroupPage(new GroupData("test1", null, null));
-    app.getGroupHelper().submitGroupCreation();
-    app.getGroupHelper().returnToGroupPage();
+    app.getGroupHelper().createGroup(new GroupData("test1", null, null));
 
-  }
-
-  private void initGroupCreation() {
-    app.getGroupHelper().wd.findElement(By.name("new")).click();
   }
 
 }

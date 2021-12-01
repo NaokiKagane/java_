@@ -12,6 +12,10 @@ public class GroupHelper extends HelperBase {
     super(wd);
   }
 
+  public void initGroupCreation() {
+    click(By.name("new"));
+  }
+
   public void returnToGroupPage() {
     click(By.linkText("group page"));
   }
@@ -73,6 +77,17 @@ public class GroupHelper extends HelperBase {
 
   public void submitModification() {
     wd.findElement(By.xpath("//input[22]")).click();
+  }
+
+  public void createGroup(GroupData group) {
+    initGroupCreation();
+    fillGroupPage(group);
+    submitGroupCreation();
+    returnToGroupPage();
+  }
+
+  public boolean isThereAGroup() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
 
