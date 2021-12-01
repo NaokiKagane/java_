@@ -7,15 +7,16 @@ public class AddNewData {
   private String homePhone;
   private String mobilePhone;
   private String emailAdress;
+  private String group;
 
-  public AddNewData(String firstName, String lastName, String nickName, String homePhone, String mobilePhone, String emailAdress) {
+  public AddNewData(String firstName, String lastName, String nickName, String homePhone, String mobilePhone, String emailAdress, String group) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.nickName = nickName;
     this.homePhone = homePhone;
     this.mobilePhone = mobilePhone;
     this.emailAdress = emailAdress;
-
+    this.group = group;
   }
 
   public String getLastName() {
@@ -40,5 +41,10 @@ public class AddNewData {
 
   public String getFirstName() {
     return firstName;
+  }
+
+
+  public String getGroup() {
+    return group;
   }
 }
