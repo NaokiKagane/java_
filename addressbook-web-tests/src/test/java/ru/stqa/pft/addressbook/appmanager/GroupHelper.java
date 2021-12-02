@@ -50,38 +50,7 @@ public class GroupHelper extends HelperBase {
   public void submitGroupModfication() {
     click(By.name("update"));
   }
-  public void returnToHomePage() {
-    click(By.linkText("home"));
-  }
-  public void submitAddNew() {
-    click(By.xpath("//div[@id='content']/form/input[21]"));
-  }
-  public void gotoHomePage() {
-      click(By.linkText("home"));
-  }
 
-  public void selectContact() {
-    //click(By.linkText("selected[16]"));
-    wd.findElement(By.id("MassCB")).click();;
-  }
-
-  public void deleteSelectedContact() {
-    //click(By.linkText("xpath=//div[2]/input"));
-    wd.findElement(By.xpath("//div[2]/input")).click();
-
-  }
-
-  public void acceptAllert() {
-    wd.switchTo().alert().accept();
-  }
-
-  public void initContactModification() {
-    wd.findElement(By.xpath("//img[@alt='Edit']")).click();
-  }
-
-  public void submitModification() {
-    wd.findElement(By.xpath("//input[22]")).click();
-  }
 
   public void createGroup(GroupData group) {
     initGroupCreation();
