@@ -6,11 +6,23 @@ public class GroupData {
   private final String name;
   private final String header;
 
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  private int id;
+  private final String footer;
+
   @Override
   public String toString() {
     return "GroupData{" +
             "name='" + name + '\'' +
+            ", id='" + id + '\'' +
             '}';
+  }
+
+  public int getId() {
+    return id;
   }
 
   @Override
@@ -26,9 +38,15 @@ public class GroupData {
     return Objects.hash(name);
   }
 
-  private final String footer;
-
   public GroupData(String name, String header, String footer) {
+    this.id = Integer.MAX_VALUE;
+    this.name = name;
+    this.header = header;
+    this.footer = footer;
+  }
+
+  public GroupData(int id, String name, String header, String footer) {
+    this.id = id;
     this.name = name;
     this.header = header;
     this.footer = footer;
