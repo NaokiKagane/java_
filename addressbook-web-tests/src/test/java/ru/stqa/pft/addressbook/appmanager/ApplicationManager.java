@@ -17,10 +17,10 @@ public class ApplicationManager {
   public ContactHelper contactHelper;
   public WebDriver wd;
 
-  private SessionHelper sessionHelper;
-  private NavigationHelper navigationHelper;
-  private GroupHelper groupHelper;
-  private String browser;
+  public SessionHelper sessionHelper;
+  public NavigationHelper navigationHelper;
+  public GroupHelper groupHelper;
+  public String browser;
 
   public ApplicationManager(String browser) {
 
@@ -59,22 +59,19 @@ public class ApplicationManager {
   }
 
 
-  public GroupHelper getGroupHelper() {
+  public GroupHelper group() {
 
     return groupHelper;
   }
 
-  public NavigationHelper getNavigationHelper() {
+  public NavigationHelper goTo() {
 
     return navigationHelper;
   }
 
-  public ContactHelper getContactHelper() {
+  public ContactHelper goToContact() {
     return contactHelper;
   }
 
-  public ContactHelper contact() {
-    return contactHelper;
-  }
 }
 

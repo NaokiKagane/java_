@@ -89,5 +89,14 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+  public void fillContact() {
+    gotoHomePage();
+    initContactModification();
+  AddNewData contact = new AddNewData ( "Anna", "Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "mail@mail.ru", null);
+    fillAddNew (contact);
+    submitModification();
+    returnToHomePage();
+  }
 }
+
 

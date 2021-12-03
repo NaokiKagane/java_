@@ -13,20 +13,17 @@ public class ContactModificationTests extends TestBase {
   @Test
 
   public void testContactModification () {
-    app.getContactHelper().gotoHomePage();
-    if (! app.getContactHelper().isThereAContact()) {
-      app.getNavigationHelper().gotoAddNew();
-      app.getContactHelper().createContact(new AddNewData("Anna", "Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "mail@mail.ru", "test1"));
-    }
-    List<AddNewData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().gotoHomePage();
-    app.getContactHelper().initContactModification();
+    app.goToContact().gotoHomePage();
+    contactPrecondition();
+    List<AddNewData> before = app.goToContact().getContactList();
+    app.goToContact().gotoHomePage();
+    app.goToContact().initContactModification();
     AddNewData contact = new AddNewData ( "Anna", "Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "mail@mail.ru", null);
-    app.getContactHelper().fillAddNew (contact);
-    app.getContactHelper().submitModification();
-    app.getContactHelper().returnToHomePage();
-    app.getContactHelper().gotoHomePage();
-    List<AddNewData> after = app.getContactHelper().getContactList();
+    app.goToContact().fillAddNew (contact);
+    app.goToContact().submitModification();
+    app.goToContact().returnToHomePage();
+    app.goToContact().gotoHomePage();
+    List<AddNewData> after = app.goToContact().getContactList();
     Assert.assertEquals(after.size(), before.size());
 
     before.remove(before.size() - 1);
@@ -36,5 +33,12 @@ public class ContactModificationTests extends TestBase {
     after.sort(byId);
     Assert.assertEquals(before, after);
 
+  }
+
+  public void contactPrecondition() {
+    if (! app.goToContact().isThereAContact()) {
+      app.goTo().gotoAddNew();
+      app.goToContact().createContact(new AddNewData("Anna", "Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "mail@mail.ru", "test1"));
+    }
   }
 }
