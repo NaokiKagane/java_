@@ -3,8 +3,10 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AddNewData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.List;
+import java.util.Set;
 
 public class ContactsDeletionTests extends TestBase {
 
@@ -12,20 +14,19 @@ public class ContactsDeletionTests extends TestBase {
   @Test
   public void testContactsDeletion () {
     app.goToContact().gotoHomePage();
-    List<AddNewData> before = app.goToContact().getContactList();
+    Set<AddNewData> before = app.goToContact().all();
     ensurePreconditions();
-    int index = before.size() - 1;
-    app.goToContact().selectContact(index);
-    app.goToContact().deleteSelectedContact();
-    app.goToContact().acceptAlert();
-    app.goToContact().returnToHomePage();
-    List<AddNewData> after = app.goToContact().getContactList();
+    AddNewData deletedContact = before.iterator().next();
+    app.goToContact().delete (deletedContact);
+    Set<AddNewData> after = app.goToContact().all();
     Assert.assertEquals(after.size(), before.size() - 1);
 
-    before.remove(index);
+    before.remove(deletedContact);
       Assert.assertEquals(before, after);
 
   }
+
+
   public void ensurePreconditions () {
     if (!app.goToContact().isThereAContact()) {
       app.goTo().gotoAddNew();

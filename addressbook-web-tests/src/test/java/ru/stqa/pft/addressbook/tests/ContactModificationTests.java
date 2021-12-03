@@ -6,36 +6,32 @@ import ru.stqa.pft.addressbook.model.AddNewData;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class ContactModificationTests extends TestBase {
 
   @Test
 
   public void testContactModification () {
-    app.goToContact().gotoHomePage();
     contactPrecondition();
-    List<AddNewData> before = app.goToContact().getContactList();
-    app.goToContact().gotoHomePage();
-    app.goToContact().initContactModification();
-    AddNewData contact = new AddNewData ();
-    app.goToContact().fillAddNew (contact);
-    app.goToContact().submitModification();
-    app.goToContact().returnToHomePage();
-    app.goToContact().gotoHomePage();
-    List<AddNewData> after = app.goToContact().getContactList();
+    Set<AddNewData> before = app.goToContact().all();
+    AddNewData modifiedContact = before.iterator().next();
+    AddNewData contact = new AddNewData ().withid(modifiedContact.getId()).withFirstName("Anna").withLastName("Terekhina").withNickName("Reoki").
+            withHomePhone("33-33-33").withMobilePhone("8-999-999-99-99").withEmailAdress("mail@mail.ru").withGroup("test1");
+    app.goToContact().modify(contact);
+    Set<AddNewData> after = app.goToContact().all();
     Assert.assertEquals(after.size(), before.size());
 
-    before.remove(before.size() - 1);
+    before.remove(modifiedContact);
     before.add(contact);
     Comparator<? super AddNewData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId()) ;
-    before.sort(byId);
-    after.sort(byId);
     Assert.assertEquals(before, after);
 
   }
 
   public void contactPrecondition() {
-    if (! app.goToContact().isThereAContact()) {
+    app.goToContact().gotoHomePage();
+    if (app.goToContact().all().size() == 0) {
       app.goTo().gotoAddNew();
       app.goToContact().createContact(new AddNewData().withFirstName("Anna").withLastName("Terekhina").withNickName("Reoki").
               withHomePhone("33-33-33").withMobilePhone("8-999-999-99-99").withEmailAdress("mail@mail.ru").withGroup("test1"));
