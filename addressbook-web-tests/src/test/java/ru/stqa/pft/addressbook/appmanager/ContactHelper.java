@@ -1,13 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.AddNewData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,15 +80,15 @@ public class ContactHelper extends HelperBase {
     for (WebElement element : elements) {
       String name = element.getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      AddNewData contact = new AddNewData("Anna", "Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "mail@mail.ru", "test1", id);
-      contacts.add(contact);
+      contacts.add(new AddNewData().withFirstName("Anna").withLastName("Terekhina").withNickName("Reoki").
+              withHomePhone("33-33-33").withMobilePhone("8-999-999-99-99").withEmailAdress("mail@mail.ru").withGroup("test1").withid(id));
     }
     return contacts;
   }
   public void fillContact() {
     gotoHomePage();
     initContactModification();
-  AddNewData contact = new AddNewData ( "Anna", "Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "mail@mail.ru", null);
+  AddNewData contact = new AddNewData ();
     fillAddNew (contact);
     submitModification();
     returnToHomePage();

@@ -9,18 +9,11 @@ import java.util.List;
 public class ContactsDeletionTests extends TestBase {
 
 
-
-  public void ensurePreconditions () {
-    if (!app.goToContact().isThereAContact()) {
-      app.goTo().gotoAddNew();
-      app.goToContact().createContact(new AddNewData("Anna", "Terekhina", "Reoki", "33-33-33", "8-999-999-99-99", "mail@mail.ru", "test1"));
-    }
-  }
-
   @Test
   public void testContactsDeletion () {
     app.goToContact().gotoHomePage();
     List<AddNewData> before = app.goToContact().getContactList();
+    ensurePreconditions();
     int index = before.size() - 1;
     app.goToContact().selectContact(index);
     app.goToContact().deleteSelectedContact();
@@ -31,5 +24,13 @@ public class ContactsDeletionTests extends TestBase {
 
     before.remove(index);
       Assert.assertEquals(before, after);
+
+  }
+  public void ensurePreconditions () {
+    if (!app.goToContact().isThereAContact()) {
+      app.goTo().gotoAddNew();
+      app.goToContact().createContact(new AddNewData().withFirstName("Anna").withLastName("Terekhina").withNickName("Reoki").
+              withHomePhone("33-33-33").withMobilePhone("8-999-999-99-99").withEmailAdress("mail@mail.ru").withGroup("test1"));
+    }
   }
 }

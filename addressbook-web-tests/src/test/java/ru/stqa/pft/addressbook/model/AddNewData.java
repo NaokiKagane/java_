@@ -10,34 +10,53 @@ public class AddNewData {
   private String mobilePhone;
   private String emailAdress;
   private String group;
-  private int id;
+  private int id = Integer.MAX_VALUE;
 
 
   public int getId() {
     return id;
   }
 
-  public AddNewData(String firstName, String lastName, String nickName, String homePhone, String mobilePhone, String emailAdress, String group, int id) {
+  public AddNewData withFirstName(String firstName) {
     this.firstName = firstName;
-    this.lastName = lastName;
-    this.nickName = nickName;
-    this.homePhone = homePhone;
-    this.mobilePhone = mobilePhone;
-    this.emailAdress = emailAdress;
-    this.group = group;
-    this.id = id;
+    return this;
   }
 
-  public AddNewData(String firstName, String lastName, String nickName, String homePhone, String mobilePhone, String emailAdress, String group) {
-    this.firstName = firstName;
+  public AddNewData withLastName(String lastName) {
     this.lastName = lastName;
-    this.nickName = nickName;
-    this.homePhone = homePhone;
-    this.mobilePhone = mobilePhone;
-    this.emailAdress = emailAdress;
-    this.group = group;
-    this.id = Integer.MAX_VALUE;
+    return this;
   }
+
+  public AddNewData withNickName(String nickName) {
+    this.nickName = nickName;
+    return this;
+  }
+
+  public AddNewData withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
+
+  public AddNewData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+  public AddNewData withEmailAdress(String emailAdress) {
+    this.emailAdress = emailAdress;
+    return this;
+  }
+
+  public AddNewData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
+  public AddNewData withid(int id) {
+    this.id = id;
+    return this;
+  }
+
 
   public String getLastName() {
     return lastName;
@@ -68,9 +87,6 @@ public class AddNewData {
     return group;
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
   @Override
   public String toString() {
     return "AddNewData{" +
